@@ -1,5 +1,7 @@
 package com.addressbooks;
 
+import java.util.Scanner;
+
 public class Contact {
 	private String first_name;
 	private String last_name;
@@ -70,8 +72,41 @@ public class Contact {
 	
 
 	public static void main(String[] args) {
-		Contact contact=new Contact("shraddha", "yadav", "govandi", "mumbai", "maharashtra", "srd@mail.com", "987523456");
-		System.out.println(contact);
+		
+		
+		Scanner scanner = new Scanner(System.in);
+		Addressbook addressbook=new Addressbook();
+		addressbook.addContact(newContact(scanner));
+		addressbook.display();
 }
+	
+	
+	public static Contact newContact(Scanner scanner) {
+		System.out.println("Enter the First Name: ");
+		String Firstname= scanner.nextLine();
+		
+		System.out.println("Enter the Last Name: ");
+		String lastname= scanner.nextLine();
+		
+		System.out.println("Enter the address Name: ");
+		String address= scanner.nextLine();
+		
+		System.out.println("Enter the city Name: ");
+		String city= scanner.nextLine();
+		
+		System.out.println("Enter the State Name: ");
+		String state= scanner.nextLine();
+		
+		System.out.println("Enter the Email: ");
+		String email= scanner.nextLine();
+		
+		System.out.println("Enter the Phone no: ");
+		String phoneno= scanner.nextLine();
+		
+		return new Contact(Firstname, lastname, address, city, state, email, phoneno);
+		
+	}
+	
+	
 }
 
