@@ -3,7 +3,7 @@ package com.addressbooks;
 import java.util.Scanner;
 
 public class Contact {
-
+	
 	private String first_name;
 	private String last_name;
 	private String address;
@@ -28,7 +28,6 @@ public class Contact {
 				+ " Email= " +email + " phoneno= " +phoneno;
 		 
 	 }
-	 
 	
 	public String getFirst_name() {
 		return first_name;
@@ -77,6 +76,9 @@ public class Contact {
 	public static Contact newContact(Scanner scanner) {		
 		
 		System.out.println("Enter the First Name: ");
+		int id= scanner.nextInt();
+		
+		System.out.println("Enter the First Name: ");
 		String Firstname= scanner.nextLine();
 		
 		System.out.println("Enter the Last Name: ");
@@ -100,7 +102,7 @@ public class Contact {
 		return new Contact(Firstname, lastname, address, city, state, email, phoneno);
 	}
 	
-	
+
 public static void main(String[] args) {
 		
 		
@@ -113,7 +115,13 @@ public static void main(String[] args) {
 		System.out.print("Enter the name of the contact you want to update: ");
         String toupdate_name = scanner.nextLine();
         Contact updated= newContact(scanner);
-        addressbook.updateContact(toupdate_name, updated);
+       addressbook.updateContact(toupdate_name, updated);
+       //to delete the addressbook
+       System.out.print("Enter the name of the contact you want to update: ");
+       String todelete = scanner.nextLine();
+       addressbook.deleteContact(todelete);
+       addressbook.display();
+       scanner.close();
         
 }
 }
