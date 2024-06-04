@@ -22,4 +22,16 @@ public class Addressbook {
 			System.out.println(contact);
 		}
 	}
+	
+	public void updateContact(String oldname, Contact newname) {
+		for(int i=0;i<contacts.size();i++) {
+			if(contacts.get(i).getFirst_name().equalsIgnoreCase(oldname)) {
+				contacts.set(i, newname);
+				return;
+			}
+			
+		}
+		System.out.println("Contact not found");
+		
+	}
 }
