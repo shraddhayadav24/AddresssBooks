@@ -3,6 +3,7 @@ package com.addressbooks;
 import java.util.Scanner;
 
 public class Contact {
+
 	private String first_name;
 	private String last_name;
 	private String address;
@@ -12,6 +13,7 @@ public class Contact {
 	private String phoneno;
 	
 	public Contact(String first_name, String last_name, String address, String city, String state, String email, String phoneno) {
+		
 		this.first_name=first_name;
 		this.last_name=last_name;
 		this.address=address;
@@ -22,10 +24,11 @@ public class Contact {
 	}
 	
 	 public String toString() {
-		return "Contact["+" firstname= " +first_name + " lastname= " +last_name + " Address= " + address + " City= " + city + " State= " +state
+		return "Contact[" +" firstname= " +first_name + " lastname= " +last_name + " Address= " + address + " City= " + city + " State= " +state
 				+ " Email= " +email + " phoneno= " +phoneno;
 		 
 	 }
+	 
 	
 	public String getFirst_name() {
 		return first_name;
@@ -70,18 +73,9 @@ public class Contact {
 		this.phoneno = phoneno;
 	}
 	
-
-	public static void main(String[] args) {
-		
-		
-		Scanner scanner = new Scanner(System.in);
-		Addressbook addressbook=new Addressbook();
-		addressbook.addContact(newContact(scanner));
-		addressbook.display();
-}
 	
-	
-	public static Contact newContact(Scanner scanner) {
+	public static Contact newContact(Scanner scanner) {		
+		
 		System.out.println("Enter the First Name: ");
 		String Firstname= scanner.nextLine();
 		
@@ -104,9 +98,23 @@ public class Contact {
 		String phoneno= scanner.nextLine();
 		
 		return new Contact(Firstname, lastname, address, city, state, email, phoneno);
-		
 	}
 	
 	
+public static void main(String[] args) {
+		
+		
+		Scanner scanner = new Scanner(System.in);
+		// to add the contact
+		Addressbook addressbook=new Addressbook();
+		addressbook.addContact(newContact(scanner));
+		addressbook.display();
+		// to update the contact
+		System.out.print("Enter the name of the contact you want to update: ");
+        String toupdate_name = scanner.nextLine();
+        Contact updated= newContact(scanner);
+        addressbook.updateContact(toupdate_name, updated);
+        
+}
 }
 
